@@ -1,0 +1,18 @@
+[Unit]
+Description=HLS Muxer
+After=multi-user.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi
+Type=idle
+ExecStart=/usr/bin/python /home/pi/get_jobs.py
+Restart=always
+RestartSec=3
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=hlsmuxer
+
+[Install]
+WantedBy=multi-user.target
+
